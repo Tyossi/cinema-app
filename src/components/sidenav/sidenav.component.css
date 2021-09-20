@@ -1,0 +1,8 @@
+.side__nav-container {
+  height: 100vh;
+  border-right: solid black;
+  flex-direction: column;
+  padding: 2rem 4rem;
+  max-width: 20rem;
+  background-color: orange;
+}

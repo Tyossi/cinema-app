@@ -1,0 +1,130 @@
+@keyframes moveInRight {
+  0% {
+    /* opacity: 0; */
+    transform: translateX(200rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80vw;
+  background: #fff;
+  z-index: 1000;
+  animation: moveInRight 0.3s ease-in-out;
+  -webkit-box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+  box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+}
+
+.movie__details {
+  display: flex;
+  /* background-color: chocolate; */
+  padding: 3rem;
+  justify-content: center;
+}
+.poster__div {
+  /* flex: 0 0 30%; */
+  /* height: 30rem; */
+  /* background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: crimson;
+  border-radius: 2rem; */
+  /* padding: 15rem; */
+}
+
+.poster {
+  /* width: 30rem; */
+  height: 35rem;
+  border-radius: 2rem;
+}
+
+.movie__details--box {
+  /* flex: 0 0 60%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: chartreuse; */
+  padding: 1rem 0 0 3rem;
+}
+
+.similar__movies--box {
+  background: orangered;
+}
+
+.title {
+}
+
+.plot {
+  font-size: 1.5rem;
+}
+
+.figure__details--box {
+  display: flex;
+}
+
+.release__date {
+  font-size: 1.5rem;
+}
+
+.rating {
+  font-size: 1.5rem;
+}
+
+.duration {
+  font-size: 1.5rem;
+}
+
+.icon {
+  margin-right: 2rem;
+}
+
+.watch-and-fav__icons--box {
+}
+
+.watch-now__CTA {
+  background-color: yellow;
+  width: fit-content;
+  padding: 1rem 3.5rem;
+  border-radius: 3rem;
+  font-size: 1.4rem;
+}
+
+.fav__icon {
+}
+
+.similar__heading {
+  padding: 2rem 0 0 3rem;
+}
+
+.similar__movies--box {
+}
+
+.similar__posters {
+}
+
+.similar__movies--container {
+  display: flex;
+  margin-bottom: 5rem;
+}
