@@ -3,8 +3,13 @@ import axios from "axios";
 import "./movieCard.style.css";
 // import { useEffect } from "react/cjs/react.development";
 // import SideView from "../sideView.component/sideView.component";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useRouteMatch, withRouter } from "react-router";
 import { connect } from "react-redux";
+import {
+  toggleBackdrop,
+  toggleBackdropTwo,
+} from "../../redux/backdrop/backdrop.actions";
 // import { openSideView } from "../../redux/sideView/sideView.action";
 
 const MovieCard = ({
@@ -12,10 +17,15 @@ const MovieCard = ({
   imdbId,
   history,
   match,
-  // openSideView,
   height,
   width,
+  imdbIdTwo,
+  toggleBackdrop,
+  toggleBackdropTwo,
+  // openSideView,
+  // movieDetailSideToggle
 }) => {
+  let { url, path } = useRouteMatch();
   // const [showSideView, setShowSideView] = useState(false);
 
   // const toggleSideView = () => {
@@ -49,23 +59,34 @@ const MovieCard = ({
         width: `${width}`,
       }}
     >
-      {/* <Link to={`${match.url}${imdbId}`}> */}
-      <button
-        className="view__details"
-        onClick={() => {
-          history.push(`${match.url}${imdbId}`);
-          // openSideView();
-        }}
-      >
-        View
-      </button>
-      {/* </Link> */}
+      {match.path === "/" ? (
+        <button
+          className="view__details"
+          onClick={() => {
+            history.push(`/${imdbId}`);
+            toggleBackdrop();
+          }}
+        >
+          View
+        </button>
+      ) : (
+        <button
+          className="view__details"
+          onClick={() => {
+            history.push(`${url}/${imdbIdTwo}`);
+            toggleBackdropTwo();
+          }}
+        >
+          View
+        </button>
+      )}
     </div>
   );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  // openSideView: () => dispatch(openSideView()),
+  toggleBackdrop: () => dispatch(toggleBackdrop()),
+  toggleBackdropTwo: () => dispatch(toggleBackdropTwo()),
 });
 
-export default connect(null, mapDispatchToProps)(withRouter(MovieCard));
+export default withRouter(connect(null, mapDispatchToProps)(MovieCard));

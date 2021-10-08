@@ -37,10 +37,13 @@ const Homepage = ({
         <h1>Explore</h1>
         <SearchBar onChange={onChange} onSubmit={onSubmit} query={query} />
         <MovieList movies={moviesReducerState} search={search} />
-        <Switch>
-          <Route exact path={`${match.path}:param/`} component={SideView} />
-        </Switch>
-        {sideViewState ? <Backdrop /> : null}
+        {/* <Route
+          path={`${match.path}/side-2/:param/`}
+          render={() => <SideView />}
+        /> */}
+        {/* <Switch>
+        <Route path={`${match.path}:param`} component={SideView} />
+        </Switch> */}
       </div>
     </>
   );
@@ -56,7 +59,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchMoviesAsynchronously(search)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(Homepage));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Homepage)
+);

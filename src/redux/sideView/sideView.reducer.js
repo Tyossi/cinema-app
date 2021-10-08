@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   movie: { movie: {} },
   isFetching: false,
   errorMessage: "",
+  sideViewId: "",
 };
 
 const sideViewReducer = (state = INITIAL_STATE, action) => {
@@ -29,6 +30,11 @@ const sideViewReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isFetching: !state.isFetching,
         errorMessage: action.payload,
+      };
+    case sideViewActionTypes.SAVE_SIDEVIEW_ID:
+      return {
+        ...state,
+        sideViewId: action.payload,
       };
     default:
       return state;

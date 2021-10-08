@@ -6,11 +6,20 @@ import MovieCard from "../movieCard.component/movieCard.component";
 import { withRouter } from "react-router";
 import { BrowserRouter as Route, Switch } from "react-router-dom";
 import SideView from "../sideView.component/sideView.component";
+import SimilarMovieCard from "../similarMoviesCardComponent/similarMoviesCardComponent";
+import BackDrop from "../backdrop/backDrop.component";
 
-const MovieDetails = ({ match, movies }) => {
+const MovieDetails = ({
+  match,
+  movies,
+  sideViewState,
+  sideViewId,
+  backDropTwoState,
+}) => {
   const [movie, setMovie] = useState({ movie: {} });
-
-  const url = `http://www.omdbapi.com/?i=${match.params.param}&plot=full&apikey=dc53bd4c`;
+  const movieId = sideViewId ? sideViewId : match.params.param;
+  console.log({ sideViewId });
+  const url = `http://www.omdbapi.com/?i=${movieId}&plot=full&apikey=dc53bd4c`;
 
   const fetchMovie = async () => {
     const response = await axios(url);
@@ -22,15 +31,21 @@ const MovieDetails = ({ match, movies }) => {
 
   useEffect(() => {
     fetchMovie();
-  }, []);
+  }, [sideViewId]);
 
-  console.log(match);
+  console.log({ match });
   console.log({ movies });
   return (
     <div className="details">
-      <Switch>
-        {/* <Route path={`${match.path}/:param`} component={SideView} /> */}
-      </Switch>
+      {/* <Switch> */}
+      {/* <Route path={`${match.path}/:id/`} render={() => <SideView />} /> */}
+      {/* <Route
+        path={`/movie-details/:param/:id/`}
+        render={() => <SideView match={match} />}
+      /> */}
+      {/* </Switch> */}
+
+      {backDropTwoState ? <BackDrop /> : null}
       <div className="movie__details">
         <img src={movie.Poster} alt="" className="poster" />
 
@@ -55,15 +70,28 @@ const MovieDetails = ({ match, movies }) => {
           .filter((movie) => movie.imdbID !== match.params.param)
           .map((movie) => {
             return (
-              <MovieCard
-                key={movie.index}
-                title={movie.Title}
-                year={movie.Year}
-                poster={movie.Poster}
-                imdbId={movie.imdbID}
-                height="21rem"
-                width="25rem"
-              />
+              <div>
+                {/* <SideView /> */}
+
+                <MovieCard
+                  key={movie.index}
+                  title={movie.Title}
+                  year={movie.Year}
+                  poster={movie.Poster}
+                  imdbIdTwo={movie.imdbID}
+                  height="21rem"
+                  width="25rem"
+                />
+                {/* <SimilarMovieCard
+                  key={movie.index}
+                  title={movie.Title}
+                  year={movie.Year}
+                  poster={movie.Poster}
+                  imdbId={movie.imdbID}
+                  height="21rem"
+                  width="25rem"
+                /> */}
+              </div>
             );
           })}
       </div>
@@ -73,6 +101,14 @@ const MovieDetails = ({ match, movies }) => {
 
 const mapStateToProps = (state) => ({
   movies: state.movies.movies,
+  sideViewState: state.sideView.isSideViewOpen,
+  sideViewId: state.sideView.sideViewId,
+  backDropTwoState: state.toggleBackdrop.backdropTwoState,
 });
 
-export default connect(mapStateToProps, null)(withRouter(MovieDetails));
+export default withRouter(
+  connect(
+    mapStateToProps
+    // mapDispatchToProps
+  )(MovieDetails)
+);

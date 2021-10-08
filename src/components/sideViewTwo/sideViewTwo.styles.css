@@ -50,10 +50,10 @@
   margin-bottom: 2rem;
 }
 
-/* .hide {
+.hide {
   display: none;
   animation: moveInRight 0.3s ease-in-out;
-} */
+}
 
 .font-awesome {
   font-size: 1.5rem;
