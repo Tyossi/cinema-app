@@ -15,6 +15,8 @@ const App = ({ sideViewState, backdropState }) => {
 
   // const { path, url } = useRouteMatch();
 
+  console.log({ backdropState });
+
   return (
     <div className="App">
       <SideNav />

@@ -11,17 +11,24 @@ import {
   saveSideViewIdToState,
 } from "../../redux/sideView/sideView.action";
 import { fetchSideViewMovieStart } from "../../redux/sideView/sideView.action";
+import {
+  toggleBackdrop,
+  toggleBackdropTwo,
+} from "../../redux/backdrop/backdrop.actions";
 
 const SideView = ({
   match,
   fetchSideViewMovieAsync,
   history,
   sideViewState,
+  toggleBackdrop,
+  toggleBackdropTwo,
   movie,
   closeSideView,
   imdbIdTwo,
   location,
   saveSideViewIdToState,
+  backdropTwoState,
 }) => {
   // const [movie, setMovie] = useState({ movie: {} });
 
@@ -36,6 +43,7 @@ const SideView = ({
   // if (isMounted) setMovie(response.data);
   console.log({ movie });
   console.log({ param }, { id });
+  console.log({ backdropTwoState });
   // };
   useEffect(() => {
     fetchSideViewMovieAsync(match);
@@ -47,16 +55,33 @@ const SideView = ({
   console.log({ sideViewState });
   console.log({ match, history, location });
 
+  const toggleMDBackDrop = (backdropTwoState) => {
+    return backdropTwoState ? toggleBackdropTwo() : null;
+  };
   return (
     <div className={"side__view"}>
-      <FontAwesomeIcon
-        className="font-awesome"
-        icon={faArrowLeft}
-        onClick={() => {
-          history.push("/");
-          // fetchSideViewMovieAsync();
-        }}
-      />
+      {match.path === "/:param" ? (
+        <FontAwesomeIcon
+          className="font-awesome"
+          icon={faArrowLeft}
+          onClick={() => {
+            history.goBack();
+            toggleBackdrop();
+            // fetchSideViewMovieAsync();
+          }}
+        />
+      ) : (
+        <FontAwesomeIcon
+          className="font-awesome"
+          icon={faArrowLeft}
+          onClick={() => {
+            history.goBack();
+            toggleBackdropTwo();
+            // fetchSideViewMovieAsync();
+          }}
+        />
+      )}
+
       <div
         className="side__movie--image"
         style={{
@@ -70,6 +95,7 @@ const SideView = ({
           className="side__view--CTA"
           onClick={() => {
             history.push(`/movie-details/${id}`);
+            toggleBackdropTwo();
             saveSideViewIdToState(id);
             // closeSideView();
           }}
@@ -81,6 +107,10 @@ const SideView = ({
           className="side__view--CTA"
           onClick={() => {
             history.push(`/movie-details/${movie.imdbID}`);
+
+            // toggleBackdropTwo();
+
+            toggleMDBackDrop(backdropTwoState);
             saveSideViewIdToState(movie.imdbID);
           }}
         >
@@ -94,12 +124,15 @@ const SideView = ({
 const mapStateToProps = (state) => ({
   sideViewState: state.sideView.isSideViewOpen,
   movie: state.sideView.movie,
+  backdropTwoState: state.toggleBackdrop.backdropTwoState,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSideViewMovieAsync: (match) => dispatch(fetchSideViewMovieAsync(match)),
   closeSideView: () => dispatch(fetchSideViewMovieStart()),
   saveSideViewIdToState: (id) => dispatch(saveSideViewIdToState(id)),
+  toggleBackdrop: () => dispatch(toggleBackdrop()),
+  toggleBackdropTwo: () => dispatch(toggleBackdropTwo()),
 });
 
 export default withRouter(

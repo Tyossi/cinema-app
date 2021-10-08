@@ -20,11 +20,11 @@ const Backdrop = ({
   console.log({ match, location, history });
   return (
     <>
-      {match.path === "/:param" ? (
+      {match.path === "/:param" || match.path === "/" ? (
         <div
           className={"backdrop"}
           onClick={() => {
-            // history.goBack();
+            history.push("/");
             toggleBackdrop();
 
             // fetchSideViewMovieStart();
@@ -33,7 +33,7 @@ const Backdrop = ({
       ) : (
         <div>
           <div
-            className={"backdrop"}
+            className="backdrop"
             onClick={() => {
               history.goBack();
 
