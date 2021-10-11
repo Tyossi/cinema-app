@@ -1,8 +1,33 @@
 .side__nav-container {
-  height: 100vh;
   border-right: solid black;
   flex-direction: column;
   padding: 2rem 4rem;
-  max-width: 20rem;
-  background-color: orange;
+  flex: 0 0 20%;
+  /* background-color: orange; */
+}
+
+.fa-search:before {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  color: #fff;
+  background: #a42618;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.search__icon--con {
+  display: flex;
+  align-content: center;
+}
+
+.search__label {
+  font-size: 2rem;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  /* height: 1em; */
+  overflow: visible;
+  vertical-align: -0.125em;
 }

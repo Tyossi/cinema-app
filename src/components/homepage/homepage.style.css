@@ -1,4 +1,9 @@
 .container {
-  background-color: springgreen;
-  width: 100vw;
+  /* background-color: springgreen; */
+  /* width: 100vw; */
+  flex: 1;
+}
+
+.homepage__header {
+  margin: 3rem 0 1rem 4.5rem;
 }

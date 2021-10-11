@@ -34,7 +34,7 @@ const Homepage = ({
   return (
     <>
       <div className="container">
-        <h1>Explore</h1>
+        <h1 className="homepage__header">Explore</h1>
         <SearchBar onChange={onChange} onSubmit={onSubmit} query={query} />
         <MovieList movies={moviesReducerState} search={search} />
         {/* <Route

@@ -1,0 +1,25 @@
+.search__con {
+  margin-left: 4.5rem;
+}
+
+.search__bar {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: thin solid grey;
+  margin-right: 2rem;
+  width: 18rem;
+}
+
+.search__CTA {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: thin solid grey;
+}
+
+.search__box--icon {
+  background: #fff;
+}
+
+.fa-search:before {
+  background: #fff;
+}

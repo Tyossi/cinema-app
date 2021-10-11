@@ -5,7 +5,7 @@ import "./movieList.style.css";
 const MovieList = ({ movies, search }) => {
   return (
     <div>
-      <h1>Result For: {search}</h1>
+      <h1 className="result">Results For: {search}</h1>;
       <div className="movie__card--container">
         {movies ? (
           movies.map((movie) => {
