@@ -54,14 +54,21 @@ const MovieCard = ({
     <div
       className="movie__card"
       style={{
-        backgroundImage: `url(${poster})`,
+        // backgroundImage: `url(${poster})`,
         height: `${height}`,
         width: `${width}`,
       }}
     >
+      <div
+        className="movie__poster"
+        style={{
+          backgroundImage: `url(${poster})`,
+        }}
+      />
+
       {match.path === "/" ? (
         <div
-          className="view__details"
+          className="view__CTA"
           onClick={() => {
             history.push(`/${imdbId}`);
             toggleBackdrop();
@@ -71,7 +78,7 @@ const MovieCard = ({
         </div>
       ) : (
         <div
-          className="view__details"
+          className="view__CTA"
           onClick={() => {
             history.push(`${url}/${imdbIdTwo}`);
             toggleBackdropTwo();
