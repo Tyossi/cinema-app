@@ -9,12 +9,12 @@ const SearchBar = ({ onChange, onSubmit, query }) => {
         type="text"
         onChange={onChange}
         className="search__bar"
-        placeholder="search movies..."
+        placeholder="&#xF002; Search Movies..."
       />
-      <i className="fa fa-search "></i>
-      <button type="button" onClick={onSubmit} className="search__CTA">
+
+      <div type="button" onClick={onSubmit} className="search__CTA">
         Search
-      </button>
+      </div>
     </div>
   );
 };

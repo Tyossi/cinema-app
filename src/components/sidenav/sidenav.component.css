@@ -22,6 +22,8 @@
 
 .search__label {
   font-size: 2rem;
+  display: flex;
+  align-content: center;
 }
 
 .svg-inline--fa {
@@ -30,4 +32,33 @@
   /* height: 1em; */
   overflow: visible;
   vertical-align: -0.125em;
+}
+
+.watchlist-con {
+  display: flex;
+  align-content: center;
+}
+
+.watchlist__lable {
+  font-size: 2rem;
+  display: flex;
+  align-content: center;
+}
+
+.watchlist {
+  font-size: 2rem;
+}
+
+.fa-heart {
+  color: #a42618;
+  font-size: 2rem;
+}
+
+.fa-heart:before {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  color: #fff;
+  background: #a42618;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }

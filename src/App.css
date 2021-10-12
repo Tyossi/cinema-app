@@ -21,6 +21,8 @@ body {
   font-weight: 400;
   line-height: 1.6;
   min-height: 100vh;
+  background: #080405;
+  color: #fff;
 }
 
 .App {

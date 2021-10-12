@@ -12,9 +12,15 @@
 }
 
 .view__details {
-  color: orange;
-  font-size: 2rem;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 1rem;
+  display: none;
+  font-weight: 400;
+  font-size: 1.5rem;
+  background: #a426181f;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.movie__card:hover .view__details {
+  display: block;
 }

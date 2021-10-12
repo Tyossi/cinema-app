@@ -60,7 +60,7 @@ const MovieCard = ({
       }}
     >
       {match.path === "/" ? (
-        <button
+        <div
           className="view__details"
           onClick={() => {
             history.push(`/${imdbId}`);
@@ -68,9 +68,9 @@ const MovieCard = ({
           }}
         >
           View
-        </button>
+        </div>
       ) : (
-        <button
+        <div
           className="view__details"
           onClick={() => {
             history.push(`${url}/${imdbIdTwo}`);
@@ -78,7 +78,7 @@ const MovieCard = ({
           }}
         >
           View
-        </button>
+        </div>
       )}
     </div>
   );

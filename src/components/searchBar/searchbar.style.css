@@ -1,19 +1,25 @@
 .search__con {
   margin-left: 4.5rem;
+  display: flex;
 }
 
 .search__bar {
   padding: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: thin solid grey;
   margin-right: 2rem;
   width: 18rem;
+  font-family: FontAwesome;
 }
 
 .search__CTA {
   padding: 0.5rem;
-  border-radius: 1rem;
-  border: thin solid grey;
+  border-radius: 0.5rem;
+  background: #a42618;
+  width: fit-content;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-size: 1.3rem;
 }
 
 .search__box--icon {

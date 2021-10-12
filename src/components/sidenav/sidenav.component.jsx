@@ -14,7 +14,12 @@ const SideNav = () => {
           <i className="fa fa-search "></i>Search
         </h2>
       </div>
-      <p className="watchlist">Watchlist</p>
+      <div className="watchlist-con">
+        <h1 className="watchlist__lable">
+          <i class="fa fa-heart"></i>Watchlist
+        </h1>
+        {/* <p className="watchlist"></p> */}
+      </div>
     </div>
   );
 };
