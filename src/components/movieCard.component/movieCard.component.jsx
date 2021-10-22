@@ -59,12 +59,13 @@ const MovieCard = ({
         width: `${width}`,
       }}
     >
-      <div
+      {/* <div
         className="movie__poster"
         style={{
           backgroundImage: `url(${poster})`,
         }}
-      />
+      /> */}
+      <img src={poster} alt="Movie Poster" className="movie__poster"/>
 
       {match.path === "/" ? (
         <div
