@@ -30,9 +30,6 @@ const SideView = ({
   saveSideViewIdToState,
   backdropTwoState,
 }) => {
-  // const [movie, setMovie] = useState({ movie: {} });
-
-  let isMounted = true;
 
   const { param, id } = useParams();
 
@@ -84,10 +81,13 @@ const SideView = ({
 
       <div
         className="side__movie--image"
-        style={{
-          backgroundImage: `url(${movie.Poster})`,
-        }}
-      ></div>
+        // style={{
+        //   backgroundImage: `url(${movie.Poster})`,
+          
+        // }}
+      >
+        <img src={movie.Poster} alt="" className="side-image"/>
+      </div>
       <h3 className="side__vie--title">{movie.Title}</h3>
       <p className="side__vie--plot">{movie.Plot}</p>
       {id !== undefined ? (
@@ -100,7 +100,7 @@ const SideView = ({
             // closeSideView();
           }}
         >
-          Watch Now
+          Full Details
         </div>
       ) : (
         <div
@@ -114,7 +114,7 @@ const SideView = ({
             saveSideViewIdToState(movie.imdbID);
           }}
         >
-          Watch Now
+          Full Details  
         </div>
       )}
     </div>

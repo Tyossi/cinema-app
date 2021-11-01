@@ -8,6 +8,8 @@ import { BrowserRouter as Route, Switch } from "react-router-dom";
 import SideView from "../sideView.component/sideView.component";
 import SimilarMovieCard from "../similarMoviesCardComponent/similarMoviesCardComponent";
 import BackDrop from "../backdrop/backDrop.component";
+import "../../../node_modules/font-awesome/css/font-awesome.min.css";
+
 
 const MovieDetails = ({
   match,
@@ -53,9 +55,13 @@ const MovieDetails = ({
           <h1 className="title">{movie.Title}</h1>
           <p className="plot">{movie.Plot}</p>
           <div className="figure__details--box">
-            <p className="release__date icon">23 Apr 2021</p>
-            <p className="rating icon">6.2</p>
-            <p className="duration">1h 50mins</p>
+            <p className="release__date icon"><i class="fa fa-calendar"></i>  {movie.Released}</p>
+            <p className="rating icon"><i class="fa fa-star"></i>  {movie.imdbRating}</p>
+            {/* <p className="duration">1h 50mins</p> */}
+            <p className="duration">
+
+            <i class="fa fa-play-circle"></i>  {movie.Runtime}
+            </p> 
           </div>
           <div className="watch-and-fav__icons--box">
             <div className="watch-now__CTA">Watch Now</div>
@@ -79,8 +85,8 @@ const MovieDetails = ({
                   year={movie.Year}
                   poster={movie.Poster}
                   imdbIdTwo={movie.imdbID}
-                  height="21rem"
-                  width="25rem"
+                  height="25  rem"
+                  width="auto"
                 />
                 {/* <SimilarMovieCard
                   key={movie.index}

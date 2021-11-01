@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidenav.component.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 
 const SideNav = () => {

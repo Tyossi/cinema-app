@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../searchBar/searchbar.component";
-import axios from "axios";
 import "./homepage.style.css";
 import MovieList from "../movieList/movieList.component";
-import SideView from "../sideView.component/sideView.component";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Backdrop from "../backdrop/backDrop.component";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { fetchMoviesAsynchronously } from "../../redux/movies/movies.actions";
 
 const Homepage = ({
-  sideViewState,
   fetchMoviesAsynchronously,
   moviesReducerState,
-  match,
 }) => {
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
@@ -29,7 +23,7 @@ const Homepage = ({
 
   useEffect(() => {
     fetchMoviesAsynchronously(search);
-  }, [search]);
+  }, [search, fetchMoviesAsynchronously]);
 
   return (
     <>

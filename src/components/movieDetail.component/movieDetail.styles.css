@@ -40,7 +40,7 @@
 .movie__details {
   display: flex;
   /* background-color: chocolate; */
-  padding: 3rem;
+  padding: 2rem 3rem 0 3rem;
   justify-content: center;
 }
 .poster__div {
@@ -57,7 +57,7 @@
 .poster {
   /* width: 30rem; */
   height: 35rem;
-  border-radius: 2rem;
+  border-radius: .5rem;
 }
 
 .movie__details--box {
@@ -74,25 +74,32 @@
 }
 
 .title {
+  color: black;
 }
 
 .plot {
   font-size: 1.5rem;
+  color: black;
 }
 
 .figure__details--box {
   display: flex;
+  justify-content: space-between;
+  width: 30rem;
 }
 
 .release__date {
   font-size: 1.5rem;
+  color: black;
 }
 
 .rating {
   font-size: 1.5rem;
+  color: black;
 }
 
 .duration {
+  color: black;
   font-size: 1.5rem;
 }
 
@@ -104,18 +111,22 @@
 }
 
 .watch-now__CTA {
-  background-color: yellow;
+  background-color: #a42618;
   width: fit-content;
   padding: 1rem 3.5rem;
   border-radius: 3rem;
   font-size: 1.4rem;
+  color: #fff;
+  cursor:  pointer;
 }
 
 .fav__icon {
 }
 
 .similar__heading {
+  font-weight:900;
   padding: 2rem 0 0 3rem;
+  color: #a42618;
 }
 
 .similar__movies--box {
@@ -126,5 +137,14 @@
 
 .similar__movies--container {
   display: flex;
-  margin-bottom: 5rem;
+  margin: 0rem 1rem;
+}
+
+.fa:{
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  color: #fff;
+  background: #a42618;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }

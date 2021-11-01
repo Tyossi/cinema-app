@@ -7,7 +7,7 @@ import SideView from "./components/sideView.component/sideView.component";
 import Backdrop from "./components/backdrop/backDrop.component";
 import { connect } from "react-redux";
 import MovieDetails from "./components/movieDetail.component/movieDetail.component";
-import SideViewTwo from "./components/sideViewTwo/sideViewTwo.component";
+
 
 const App = ({ sideViewState, backdropState }) => {
   // console.log({ sideViewState });

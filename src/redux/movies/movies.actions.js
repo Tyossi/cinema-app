@@ -20,8 +20,7 @@ export const fetchMoviesAsynchronously = (search) => {
     const url = `http://www.omdbapi.com/?s=${search}&apikey=dc53bd4c`;
     dispatch(fetchMoviesStart());
 
-    return await axios
-      .get(url)
+    return await axios.get(url)
       .then((response) => dispatch(fetchMoviesSuccess(response.data.Search)))
       .catch((error) => dispatch(fetchMoviesFailed(error.message)));
     // const data = response.data;
