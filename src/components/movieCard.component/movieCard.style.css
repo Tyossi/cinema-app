@@ -23,9 +23,56 @@
   border-radius: 0.5rem;
   position: absolute;
   top: 24rem;
-  left: 5rem;
+  left: 5.5rem;
 }
 
 .movie__card:hover .view__CTA {
   display: block;
+}
+
+@media screen and (max-width: 25.9rem) {
+  .view__CTA {
+    display: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: #a42618;
+    cursor: pointer;
+    padding: 0.5rem 3rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 33rem;
+    left: 10rem;
+  }
+
+  .movie__card {
+    position: relative;
+    width: 30rem;
+    margin: 2rem;
+    height: 42rem;
+    display: flex;
+    /* background-color: red; */
+  }
+}
+@media screen and (max-width: 23.45rem) {
+  .view__CTA {
+    display: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: #a42618;
+    cursor: pointer;
+    padding: 0.5rem 3rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 32rem;
+    left: 10rem;
+  }
+
+  .movie__card {
+    position: relative;
+    width: 30rem;
+    margin: 2rem;
+    height: 40rem;
+    display: flex;
+    /* background-color: red; */
+  }
 }

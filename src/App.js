@@ -1,7 +1,7 @@
 import "./App.css";
 import Homepage from "./components/homepage/homepage.component";
 import SideNav from "./components/sidenav/sidenav.component";
-import { useRouteMatch, withRouter } from "react-router";
+// import { useRouteMatch, withRouter } from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SideView from "./components/sideView.component/sideView.component";
 import Backdrop from "./components/backdrop/backDrop.component";

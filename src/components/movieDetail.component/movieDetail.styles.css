@@ -140,11 +140,128 @@
   margin: 0rem 1rem;
 }
 
-.fa:{
+/* .fa:{
   font-size: 1rem;
   margin-right: 0.5rem;
   color: #fff;
   background: #a42618;
   padding: 0.5rem;
   border-radius: 0.5rem;
+} */
+
+
+@media screen and (max-width: 25.9rem) {
+.details {
+  /* display: block; */
+  /* flex-direction: column; */
+  position:absolute;
+  /* top: 0;
+  right: 0; */
+  height: fit-content;
+  width: 100vw;
+  background: #fff;
+  z-index: 500;
+  animation: moveInRight 0.3s ease-in-out;
+  -webkit-box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+  box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+}
+
+.movie__details {
+  display: flex;
+  flex-direction: column;
+  /* background-color: chocolate; */
+  padding: 2rem 3rem 0 3rem;
+  justify-content: center;
+}
+
+.similar__movies--container {
+  flex-direction: column;
+  align-items: center;
+  margin: 0rem 1rem;
+}
+
+.movie__details--box {
+  /* flex: 0 0 60%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: chartreuse; */
+  padding: 1rem 0 ;
+}
+
+.poster {
+  width: auto;
+  height: 43rem;
+  border-radius: .5rem;
+}
+
+.figure__details--box {
+  display: flex;
+  justify-content: space-between;
+  width: 30rem;
+  margin: 2rem 0;
+}
+
+.title{
+  margin: 2rem 0;
+}
+
+}
+@media screen and (max-width: 23.45rem) {
+.details {
+  display: block;
+  flex-direction: column;
+  position:absolute;
+  /* top: 0;
+  right: 0; */
+  height: fit-content;
+  width: 100vw;
+  background: #fff;
+  z-index: 500;
+  animation: moveInRight 0.3s ease-in-out;
+  -webkit-box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+  box-shadow: -10px -5px 11px -7px rgba(0, 0, 0, 0.47);
+}
+
+.movie__details {
+  display: flex;
+  flex-direction: column;
+  /* background-color: chocolate; */
+  padding: 2rem 3rem 0 3rem;
+  justify-content: center;
+}
+
+.similar__movies--container {
+  display: block;
+  margin: 0rem 2rem;
+}
+
+.movie__details--box {
+  /* flex: 0 0 60%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: chartreuse; */
+  padding: 1rem 0 ;
+}
+
+.poster {
+  width: auto;
+  height: 43rem;
+  border-radius: .5rem;
+}
+
+.figure__details--box {
+  display: flex;
+  justify-content: space-between;
+  width: 30rem;
+  margin: 2rem 0;
+}
+
+.title{
+  margin: 2rem 0;
+}
+
 }

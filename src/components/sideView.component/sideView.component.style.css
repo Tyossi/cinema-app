@@ -96,3 +96,38 @@
   align-self: center;
   border-radius: .5rem;
 }
+
+@media screen and (max-width: 73.5rem) {
+  .side__view {
+    width: 24%
+  }
+}
+
+
+@media screen and (max-width: 63.3rem) {
+  .side__view {
+    width: 28%
+  }
+}
+
+
+@media screen and (max-width: 55.81rem) {
+  .side__view {
+    width: 32%
+  }
+}
+
+@media screen and (max-width: 25.9rem) {
+  .side__view {
+    width: 72%
+  }
+}
+@media screen and (max-width: 23.45rem) {
+  .side__view {
+    width: 78%
+    
+  }
+
+  
+  
+}

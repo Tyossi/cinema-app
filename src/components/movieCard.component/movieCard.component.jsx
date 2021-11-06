@@ -19,6 +19,7 @@ const MovieCard = ({
   match,
   height,
   width,
+  left,
   imdbIdTwo,
   toggleBackdrop,
   toggleBackdropTwo,
@@ -57,6 +58,7 @@ const MovieCard = ({
         // backgroundImage: `url(${poster})`,
         height: `${height}`,
         width: `${width}`,
+     
       }}
     >
       {/* <div
@@ -80,6 +82,7 @@ const MovieCard = ({
       ) : (
         <div
           className="view__CTA"
+          style={{left:`${left}`}}
           onClick={() => {
             history.push(`${url}/${imdbIdTwo}`);
             toggleBackdropTwo();

@@ -31,3 +31,9 @@ body {
   /* height: 100%; */
   /* position: fixed; */
 }
+
+@media screen and (max-width: 73.5rem) {
+  .App {
+    flex-direction: column;
+  }
+}

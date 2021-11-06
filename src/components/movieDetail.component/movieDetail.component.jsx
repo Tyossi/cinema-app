@@ -21,7 +21,7 @@ const MovieDetails = ({
   const [movie, setMovie] = useState({ movie: {} });
   const movieId = sideViewId ? sideViewId : match.params.param;
   console.log({ sideViewId });
-  const url = `http://www.omdbapi.com/?i=${movieId}&plot=full&apikey=dc53bd4c`;
+  const url = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=${movieId}&plot=full&apikey=dc53bd4c`;
 
   const fetchMovie = async () => {
     const response = await axios(url);
@@ -85,8 +85,9 @@ const MovieDetails = ({
                   year={movie.Year}
                   poster={movie.Poster}
                   imdbIdTwo={movie.imdbID}
-                  height="25  rem"
-                  width="auto"
+                  // height="30rem"
+                  // width="auto"
+                  // left="11rem"
                 />
                 {/* <SimilarMovieCard
                   key={movie.index}

@@ -7,7 +7,7 @@ import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 const SideNav = () => {
   return (
     <div className="side__nav-container">
-      <h1 className="title">ShowFlix</h1>
+      <h1 className="app__name">SilverScreen</h1>
       <div className="search__icon--con">
         {/* <FontAwesomeIcon className="font-awesome search" icon={faSearch} /> */}
         <h2 className="search__label">

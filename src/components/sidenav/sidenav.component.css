@@ -1,9 +1,15 @@
 .side__nav-container {
   border-right: solid black;
   flex-direction: column;
-  padding: 2rem 4rem;
+  padding: 3rem 4rem;
   flex: 0 0 20%;
   /* background-color: orange; */
+}
+
+.app__name{
+  color:#fff;
+  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 2vw, 3rem);
 }
 
 .fa-search:before {
@@ -22,6 +28,7 @@
 
 .search__label {
   font-size: 2rem;
+  color: #333;
   display: flex;
   align-content: center;
 }

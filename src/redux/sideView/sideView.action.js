@@ -21,7 +21,7 @@ export const fetchSideViewMovieAsync = (match) => {
   // if (match.params.id) {
   const parameter = match.params.id ? match.params.id : match.params.param;
   return async (dispatch) => {
-    const url = `http://www.omdbapi.com/?i=${parameter}&plot=short&apikey=dc53bd4c`;
+    const url = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=${parameter}&plot=short&apikey=dc53bd4c`;
     dispatch(fetchSideViewMovieStart());
 
     return await axios

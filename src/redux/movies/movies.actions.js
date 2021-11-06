@@ -17,10 +17,10 @@ export const fetchMoviesFailed = (erroMessage) => ({
 
 export const fetchMoviesAsynchronously = (search) => {
   return async (dispatch) => {
-    const url = `http://www.omdbapi.com/?s=${search}&apikey=dc53bd4c`;
+    // const url = `http://www.omdbapi.com/?s=${search}&apikey=dc53bd4c`;
     dispatch(fetchMoviesStart());
 
-    return await axios.get(url)
+    return await axios.get(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=${search}&apikey=dc53bd4c`)
       .then((response) => dispatch(fetchMoviesSuccess(response.data.Search)))
       .catch((error) => dispatch(fetchMoviesFailed(error.message)));
     // const data = response.data;
