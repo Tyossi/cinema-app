@@ -2,7 +2,7 @@
 
 A React SPA for a cinema business.
 
-[Crwn Clothing Live Link](https://thesilversceen.netlify.app/)
+[SilverScreen Live Link](https://thesilversceen.netlify.app/)
 
 ## Getting Started
 
