@@ -15,7 +15,6 @@ const Backdrop = ({
   toggleBackdrop,
   toggleBackdropTwo,
 }) => {
-  console.log({ match, location, history });
   return (
     <>
       {match.path === "/:param" || match.path === "/" ? (

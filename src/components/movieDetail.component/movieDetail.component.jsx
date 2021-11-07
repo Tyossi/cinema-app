@@ -11,29 +11,27 @@ import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 const MovieDetails = ({
   match,
   movies,
-  sideViewState,
   sideViewId,
   backDropTwoState,
 }) => {
   const [movie, setMovie] = useState({ movie: {} });
   const movieId = sideViewId ? sideViewId : match.params.param;
-  console.log({ sideViewId });
   const url = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=${movieId}&plot=full&apikey=dc53bd4c`;
 
   const fetchMovie = async () => {
     const response = await axios(url);
     const data = response.data;
-    console.log({ data });
     setMovie(data);
-    console.log({ movie });
+    
   };
 
   useEffect(() => {
     fetchMovie();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sideViewId]);
 
-  console.log({ match });
-  console.log({ movies });
+  let id = 1;
+
   return (
     <div className="details">
       {backDropTwoState ? <BackDrop /> : null}
@@ -44,11 +42,11 @@ const MovieDetails = ({
           <h1 className="title">{movie.Title}</h1>
           <p className="plot">{movie.Plot}</p>
           <div className="figure__details--box">
-            <p className="release__date icon"><i class="fa fa-calendar"></i>  {movie.Released}</p>
-            <p className="rating icon"><i class="fa fa-star"></i>  {movie.imdbRating}</p>
+            <p className="release__date icon"><i className="fa fa-calendar"></i>  {movie.Released}</p>
+            <p className="rating icon"><i className="fa fa-star"></i>  {movie.imdbRating}</p>
             <p className="duration">
 
-            <i class="fa fa-play-circle"></i>  {movie.Runtime}
+            <i className="fa fa-play-circle"></i>  {movie.Runtime}
             </p> 
           </div>
           <div className="watch-and-fav__icons--box">
@@ -59,22 +57,21 @@ const MovieDetails = ({
       </div>
       <h1 className="similar__heading">Similar Titles</h1>
       <div className="similar__movies--container">
-        {movies
+        {movies ? movies
           .filter((movie, index) => index < 4)
           .filter((movie) => movie.imdbID !== match.params.param)
           .map((movie) => {
             return (
-              <div>
                 <MovieCard
-                  key={movie.index}
+                  key={id++}
                   title={movie.Title}
                   year={movie.Year}
                   poster={movie.Poster}
                   imdbIdTwo={movie.imdbID}
                 />
-              </div>
+        
             );
-          })}
+          }): "null"}
       </div>
     </div>
   );

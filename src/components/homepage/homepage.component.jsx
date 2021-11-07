@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SearchBar from "../searchBar/searchbar.component";
 import "./homepage.style.css";
 import MovieList from "../movieList/movieList.component";
@@ -12,6 +12,7 @@ const Homepage = ({
 }) => {
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
+  const formRef = useRef()
 
   const onChange = (e) => {
     setQuery(e.target.value);
@@ -19,6 +20,7 @@ const Homepage = ({
 
   const onSubmit = () => {
     setSearch(query);
+    formRef.current.reset()
   };
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const Homepage = ({
     <>
       <div className="container">
         <h1 className="homepage__header">Explore</h1>
-        <SearchBar onChange={onChange} onSubmit={onSubmit} query={query} />
+        <SearchBar onChange={onChange} onSubmit={onSubmit} query={query} formRef={formRef}/>
         <MovieList movies={moviesReducerState} search={search} />
         {/* <Route
           path={`${match.path}/side-2/:param/`}

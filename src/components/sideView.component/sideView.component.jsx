@@ -18,27 +18,19 @@ const SideView = ({
   match,
   fetchSideViewMovieAsync,
   history,
-  sideViewState,
   toggleBackdrop,
   toggleBackdropTwo,
   movie,
-  location,
   saveSideViewIdToState,
   backdropTwoState,
 }) => {
 
-  const { param, id } = useParams();
-
-  console.log({ movie });
-  console.log({ param }, { id });
-  console.log({ backdropTwoState });
+  const { id } = useParams();
   
   useEffect(() => {
     fetchSideViewMovieAsync(match);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log({ sideViewState });
-  console.log({ match, history, location });
 
   const toggleMDBackDrop = (backdropTwoState) => {
     return backdropTwoState ? toggleBackdropTwo() : null;

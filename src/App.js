@@ -1,7 +1,7 @@
 import "./App.css";
 import Homepage from "./components/homepage/homepage.component";
 import SideNav from "./components/sidenav/sidenav.component";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import SideView from "./components/sideView.component/sideView.component";
 import Backdrop from "./components/backdrop/backDrop.component";
 import { connect } from "react-redux";
@@ -9,8 +9,6 @@ import MovieDetails from "./components/movieDetail.component/movieDetail.compone
 
 
 const App = ({ backdropState }) => {
-
-  console.log({ backdropState });
 
   return (
     <div className="App">

@@ -2,9 +2,11 @@ import React from "react";
 import "./searchbar.style.css";
 import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 
-const SearchBar = ({ onChange, onSubmit}) => {
+const SearchBar = ({ onChange, onSubmit, formRef}) => {
   return (
-    <div className="search__con">
+    <div >
+      <form ref={formRef} className="search__con">
+
       <input
         type="text"
         onChange={onChange}
@@ -15,6 +17,7 @@ const SearchBar = ({ onChange, onSubmit}) => {
       <div type="button" onClick={onSubmit} className="search__CTA">
         Search
       </div>
+      </form>
     </div>
   );
 };
