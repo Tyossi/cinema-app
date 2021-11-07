@@ -19,7 +19,7 @@ export const fetchMoviesAsynchronously = (search) => {
   return async (dispatch) => {
     dispatch(fetchMoviesStart());
 
-    return await axios.get(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=${search}&apikey=dc53bd4c`)
+    return await axios.get(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=${search}&apikey=dc53bd4c`, {mode:"no-cors"})
       .then((response) => dispatch(fetchMoviesSuccess(response.data.Search)))
       .catch((error) => dispatch(fetchMoviesFailed(error.message)));
   

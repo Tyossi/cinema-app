@@ -24,7 +24,7 @@ export const fetchSideViewMovieAsync = (match) => {
     dispatch(fetchSideViewMovieStart());
 
     return await axios
-      .get(url)
+      .get(url, {mode:"no-cors"})
       .then((response) => dispatch(fetchSideViewMovieSuccess(response.data)))
       .catch((error) => dispatch(fetchSideViewMovieFailed(error.message)));
   };

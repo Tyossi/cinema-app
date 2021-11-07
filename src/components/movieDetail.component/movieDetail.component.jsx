@@ -19,7 +19,7 @@ const MovieDetails = ({
   const url = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=${movieId}&plot=full&apikey=dc53bd4c`;
 
   const fetchMovie = async () => {
-    const response = await axios(url);
+    const response = await axios(url, {mode:"no-cors"});
     const data = response.data;
     setMovie(data);
     
