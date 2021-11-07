@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./sideView.component.style.css";
-import axios from "axios";
-import { withRouter, Link, useParams } from "react-router-dom";
-import MovieCard from "../movieCard.component/movieCard.component";
+import { withRouter, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -24,8 +22,6 @@ const SideView = ({
   toggleBackdrop,
   toggleBackdropTwo,
   movie,
-  closeSideView,
-  imdbIdTwo,
   location,
   saveSideViewIdToState,
   backdropTwoState,
@@ -33,20 +29,12 @@ const SideView = ({
 
   const { param, id } = useParams();
 
-  // const url = `http://www.omdbapi.com/?i=${match.params.param}&apikey=dc53bd4c`;
-  // const fetchMovie = async () => {
-  //   const response = await axios(url);
-  //   console.log({ response });
-  // if (isMounted) setMovie(response.data);
   console.log({ movie });
   console.log({ param }, { id });
   console.log({ backdropTwoState });
-  // };
+  
   useEffect(() => {
     fetchSideViewMovieAsync(match);
-    // return () => {
-    //   isMounted = false;
-    // };
   }, []);
 
   console.log({ sideViewState });
@@ -64,7 +52,6 @@ const SideView = ({
           onClick={() => {
             history.goBack();
             toggleBackdrop();
-            // fetchSideViewMovieAsync();
           }}
         />
       ) : (
@@ -74,17 +61,12 @@ const SideView = ({
           onClick={() => {
             history.goBack();
             toggleBackdropTwo();
-            // fetchSideViewMovieAsync();
           }}
         />
       )}
 
       <div
         className="side__movie--image"
-        // style={{
-        //   backgroundImage: `url(${movie.Poster})`,
-          
-        // }}
       >
         <img src={movie.Poster} alt="" className="side-image"/>
       </div>
@@ -97,7 +79,6 @@ const SideView = ({
             history.push(`/movie-details/${id}`);
             toggleBackdropTwo();
             saveSideViewIdToState(id);
-            // closeSideView();
           }}
         >
           Full Details
@@ -107,9 +88,6 @@ const SideView = ({
           className="side__view--CTA"
           onClick={() => {
             history.push(`/movie-details/${movie.imdbID}`);
-
-            // toggleBackdropTwo();
-
             toggleMDBackDrop(backdropTwoState);
             saveSideViewIdToState(movie.imdbID);
           }}

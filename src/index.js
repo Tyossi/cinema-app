@@ -6,9 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
-// import { createBrowserHistory } from "history";
 
-// const history = createBrowserHistory();
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

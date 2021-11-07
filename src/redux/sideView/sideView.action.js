@@ -18,7 +18,6 @@ export const saveSideViewIdToState = (id) => ({
 });
 
 export const fetchSideViewMovieAsync = (match) => {
-  // if (match.params.id) {
   const parameter = match.params.id ? match.params.id : match.params.param;
   return async (dispatch) => {
     const url = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=${parameter}&plot=short&apikey=dc53bd4c`;
@@ -28,20 +27,6 @@ export const fetchSideViewMovieAsync = (match) => {
       .get(url)
       .then((response) => dispatch(fetchSideViewMovieSuccess(response.data)))
       .catch((error) => dispatch(fetchSideViewMovieFailed(error.message)));
-    // const data = response.data;
-    // dispatch(fetchMoviesSuccess(data));
   };
-  // } else {
-  // return async (dispatch) => {
-  //   const url = `http://www.omdbapi.com/?i=${match.params.param}&plot=short&apikey=dc53bd4c`;
-  //   dispatch(fetchSideViewMovieStart());
 
-  //   return await axios
-  //     .get(url)
-  //     .then((response) => dispatch(fetchSideViewMovieSuccess(response.data)))
-  //     .catch((error) => dispatch(fetchSideViewMovieFailed(error.message)));
-  //   // const data = response.data;
-  //   // dispatch(fetchMoviesSuccess(data));
-  // };
-  // }
 };

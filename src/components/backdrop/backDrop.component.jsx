@@ -9,12 +9,10 @@ import {
 } from "../../redux/backdrop/backdrop.actions";
 
 const Backdrop = ({
-  fetchSideViewMovieStart,
   history,
   match,
   location,
   toggleBackdrop,
-  sideViewState,
   toggleBackdropTwo,
 }) => {
   console.log({ match, location, history });
@@ -26,8 +24,6 @@ const Backdrop = ({
           onClick={() => {
             history.push("/");
             toggleBackdrop();
-
-            // fetchSideViewMovieStart();
           }}
         ></div>
       ) : (
@@ -36,9 +32,7 @@ const Backdrop = ({
             className="backdrop"
             onClick={() => {
               history.goBack();
-
               toggleBackdropTwo();
-              // fetchSideViewMovieStart();
             }}
           ></div>
         </div>
