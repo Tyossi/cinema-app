@@ -12,7 +12,7 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
   const movieId = sideViewId ? sideViewId : match.params.param;
   const apiKey = "d5265d163ef6f3964d8fe64245fac0f7";
 
-  const url = `https://api.themoviedb.org/3/movie${movieId}?api_key=${apiKey}`;
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
 
   const fetchMovie = async () => {
     const response = await axios(url);
