@@ -3,8 +3,6 @@ import MovieCard from "../movieCard.component/movieCard.component";
 import "./movieList.style.css";
 
 const MovieList = ({ movies, search }) => {
-  let id = 1;
-
   return (
     <div>
       <h1 className="result">Results For: {search}</h1>;
@@ -12,7 +10,7 @@ const MovieList = ({ movies, search }) => {
         {movies ? (
           movies.map((movie) => (
             <MovieCard
-              key={id++}
+              key={movie.id}
               title={movie.title}
               year={movie.released_date}
               poster={movie.poster_path}

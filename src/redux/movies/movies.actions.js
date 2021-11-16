@@ -20,7 +20,7 @@ export const fetchMoviesAsynchronously = (search) => {
     dispatch(fetchMoviesStart());
     const apiKey = "d5265d163ef6f3964d8fe64245fac0f7";
 
-    const url = `https://api.themoviedb.org/3/search/movie/?api_key=${apiKey}&query=${search}`;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search}`;
 
     return await axios
       .get(url)
