@@ -18,10 +18,16 @@ export const fetchMoviesFailed = (erroMessage) => ({
 export const fetchMoviesAsynchronously = (search) => {
   return async (dispatch) => {
     dispatch(fetchMoviesStart());
+    const apiKey = "d5265d163ef6f3964d8fe64245fac0f7";
 
-    return await axios.get(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=${search}&apikey=dc53bd4c`, {mode:"no-cors"})
-      .then((response) => dispatch(fetchMoviesSuccess(response.data.Search)))
+    const url = `https://api.themoviedb.org/3/search/movie/?api_key=${apiKey}&query=${search}`;
+
+    return await axios
+      .get(url)
+      .then((response) => dispatch(fetchMoviesSuccess(response.data.results)))
       .catch((error) => dispatch(fetchMoviesFailed(error.message)));
-  
+    // .then((response) => dispatch(fetchMoviesSuccess(response.data.Search)))
+    // const data = response.data;
+    // dispatch(fetchMoviesSuccess(data));
   };
 };

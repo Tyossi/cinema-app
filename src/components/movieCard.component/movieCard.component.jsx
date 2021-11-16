@@ -7,7 +7,6 @@ import {
   toggleBackdropTwo,
 } from "../../redux/backdrop/backdrop.actions";
 
-
 const MovieCard = ({
   poster,
   imdbId,
@@ -28,10 +27,13 @@ const MovieCard = ({
       style={{
         height: `${height}`,
         width: `${width}`,
-     
       }}
     >
-      <img src={poster} alt="Movie Poster" className="movie__poster"/>
+      <img
+        src={"https://image.tmdb.org/t/p/w500/" + poster}
+        alt="Movie Poster"
+        className="movie__poster"
+      />
 
       {match.path === "/" ? (
         <div
@@ -46,7 +48,7 @@ const MovieCard = ({
       ) : (
         <div
           className="view__CTA"
-          style={{left:`${left}`}}
+          style={{ left: `${left}` }}
           onClick={() => {
             history.push(`${url}/${imdbIdTwo}`);
             toggleBackdropTwo();

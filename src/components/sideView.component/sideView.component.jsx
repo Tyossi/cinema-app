@@ -24,17 +24,18 @@ const SideView = ({
   saveSideViewIdToState,
   backdropTwoState,
 }) => {
-
   const { id } = useParams();
-  
+
   useEffect(() => {
     fetchSideViewMovieAsync(match);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleMDBackDrop = (backdropTwoState) => {
     return backdropTwoState ? toggleBackdropTwo() : null;
   };
+
+  console.log(movie);
   return (
     <div className={"side__view"}>
       {match.path === "/:param" ? (
@@ -57,13 +58,15 @@ const SideView = ({
         />
       )}
 
-      <div
-        className="side__movie--image"
-      >
-        <img src={movie.Poster} alt="" className="side-image"/>
+      <div className="side__movie--image">
+        <img
+          src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
+          alt="Movie Poster"
+          className="side-image"
+        />
       </div>
-      <h3 className="side__vie--title">{movie.Title}</h3>
-      <p className="side__vie--plot">{movie.Plot}</p>
+      <h3 className="side__view--title">{movie.title}</h3>
+      <p className="side__view--plot">{movie.overview}</p>
       {id !== undefined ? (
         <div
           className="side__view--CTA"
@@ -79,12 +82,12 @@ const SideView = ({
         <div
           className="side__view--CTA"
           onClick={() => {
-            history.push(`/movie-details/${movie.imdbID}`);
+            history.push(`/movie-details/${movie.id}`);
             toggleMDBackDrop(backdropTwoState);
-            saveSideViewIdToState(movie.imdbID);
+            saveSideViewIdToState(movie.id);
           }}
         >
-          Full Details  
+          Full Details
         </div>
       )}
     </div>

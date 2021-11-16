@@ -6,13 +6,10 @@ import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { fetchMoviesAsynchronously } from "../../redux/movies/movies.actions";
 
-const Homepage = ({
-  fetchMoviesAsynchronously,
-  moviesReducerState,
-}) => {
+const Homepage = ({ fetchMoviesAsynchronously, moviesReducerState }) => {
   const [query, setQuery] = useState("");
-  const [search, setSearch] = useState("");
-  const formRef = useRef()
+  const [search, setSearch] = useState("kung fu panda");
+  const formRef = useRef();
 
   const onChange = (e) => {
     setQuery(e.target.value);
@@ -20,7 +17,7 @@ const Homepage = ({
 
   const onSubmit = () => {
     setSearch(query);
-    formRef.current.reset()
+    formRef.current.reset();
   };
 
   useEffect(() => {
@@ -31,7 +28,12 @@ const Homepage = ({
     <>
       <div className="container">
         <h1 className="homepage__header">Explore</h1>
-        <SearchBar onChange={onChange} onSubmit={onSubmit} query={query} formRef={formRef}/>
+        <SearchBar
+          onChange={onChange}
+          onSubmit={onSubmit}
+          query={query}
+          formRef={formRef}
+        />
         <MovieList movies={moviesReducerState} search={search} />
         {/* <Route
           path={`${match.path}/side-2/:param/`}

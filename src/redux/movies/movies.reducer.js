@@ -1,7 +1,7 @@
 import { moviesActionTypes } from "./movie.action.types";
 
 const INITIAL__STATE = {
-  movies: [],
+  movies: null,
   isFetching: false,
   erroMessage: "",
 };

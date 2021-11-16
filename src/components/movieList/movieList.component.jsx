@@ -3,25 +3,22 @@ import MovieCard from "../movieCard.component/movieCard.component";
 import "./movieList.style.css";
 
 const MovieList = ({ movies, search }) => {
-
-let id = 1
+  let id = 1;
 
   return (
     <div>
       <h1 className="result">Results For: {search}</h1>;
       <div className="movie__card--container">
         {movies ? (
-          movies.map((movie) => 
-                <MovieCard
-                  key={id++}
-                  title={movie.Title}
-                  year={movie.Year}
-                  poster={movie.Poster}
-                  imdbId={movie.imdbID}
-                />
-              
-          
-          )
+          movies.map((movie) => (
+            <MovieCard
+              key={id++}
+              title={movie.title}
+              year={movie.released_date}
+              poster={movie.poster_path}
+              imdbId={movie.id}
+            />
+          ))
         ) : (
           <h1>No Movies</h1>
         )}
