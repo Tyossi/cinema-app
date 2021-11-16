@@ -34,7 +34,7 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
       <div className="movie__details">
         <img
           src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
-          alt=""
+          alt="Movie Poster"
           className="poster"
         />
 
@@ -46,10 +46,10 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
               <i className="fa fa-calendar"></i> {movie.release_date}
             </p>
             <p className="rating icon">
-              <i className="fa fa-star"></i> {movie.imdbRating}
+              <i className="fa fa-star"></i> {movie.vote_average}
             </p>
             <p className="duration">
-              <i className="fa fa-play-circle"></i> {movie.Runtime}
+              <i className="fa fa-play-circle"></i> {movie.runtime}
             </p>
           </div>
           <div className="watch-and-fav__icons--box">
