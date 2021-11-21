@@ -8,7 +8,7 @@ import { fetchMoviesAsynchronously } from "../../redux/movies/movies.actions";
 
 const Homepage = ({ fetchMoviesAsynchronously, moviesReducerState }) => {
   const [query, setQuery] = useState("");
-  const [search, setSearch] = useState("kung fu panda");
+  const [search, setSearch] = useState("spider man");
   const formRef = useRef();
 
   const onChange = (e) => {
