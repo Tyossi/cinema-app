@@ -49,7 +49,7 @@ Enjoy :)
 * [React](https://reactjs.org/) - The JavaScript framework used
 * [Redux](https://redux.js.org/) - State Management
 * [React-Router](https://v5.reactrouter.com/web/guides/quick-start) - React Navigation Library
-* [OMDB API](http://www.omdbapi.com/?__cf_chl_captcha_tk__=BW1VqdsjeLu4hkpieFCaqsn8DOQI1npYhBOF4qa0G4k-1636295413-0-gaNycGzNA30) - Movies database API
+* [TMDB API](https://developers.themoviedb.org/3) - Movies database API
 * [Font Awesome Icon](https://fontawesome.com/) - UI Icon library used
 
 
