@@ -24,13 +24,3 @@ body {
   background: #080405;
   color: #fff;
 }
-
-.App {
-  display: flex;
-}
-
-@media screen and (max-width: 73.5rem) {
-  .App {
-    flex-direction: column;
-  }
-}
