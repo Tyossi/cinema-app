@@ -11,11 +11,11 @@ const SideNav = () => {
           <i className="fa fa-search "></i>Search
         </h2>
       </div>
-      <div className="watchlist-con">
+      {/* <div className="watchlist-con">
         <h1 className="watchlist__lable">
           <i className="fa fa-heart"></i>Watchlist
         </h1>
-      </div>
+      </div> */}
     </div>
   );
 };

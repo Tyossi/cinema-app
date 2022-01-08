@@ -29,11 +29,7 @@ const MovieCard = ({
         width: `${width}`,
       }}
     >
-      <img
-        src={"https://image.tmdb.org/t/p/w500/" + poster}
-        alt="Movie Poster"
-        className="movie__poster"
-      />
+      <img src={poster} alt="Movie Poster" className="movie__poster" />
 
       {match.path === "/" ? (
         <div

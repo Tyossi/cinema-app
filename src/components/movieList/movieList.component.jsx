@@ -8,13 +8,13 @@ const MovieList = ({ movies, search }) => {
       <h1 className="result">Results For: {search}</h1>;
       <div className="movie__card--container">
         {movies ? (
-          movies.map((movie) => (
+          movies.map((movie, index) => (
             <MovieCard
-              key={movie.id}
-              title={movie.title}
-              year={movie.released_date}
-              poster={movie.poster_path}
-              imdbId={movie.id}
+              key={index}
+              title={movie.Title}
+              year={movie.Year}
+              poster={movie.Poster}
+              imdbId={movie.imdbID}
             />
           ))
         ) : (

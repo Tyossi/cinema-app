@@ -10,9 +10,10 @@ import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
   const [movie, setMovie] = useState({});
   const movieId = sideViewId ? sideViewId : match.params.param;
-  const apiKey = "d5265d163ef6f3964d8fe64245fac0f7";
+  // const apiKey = "d5265d163ef6f3964d8fe64245fac0f7";
+  const apiKey = "dc53bd4c";
 
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
+  const url = `http://www.omdbapi.com/?i=${movieId}&apikey=${apiKey}&plot=full`;
 
   const fetchMovie = async () => {
     const response = await axios(url);
@@ -22,7 +23,6 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
 
   useEffect(() => {
     fetchMovie();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sideViewId]);
 
   console.log({ match });
@@ -31,24 +31,20 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
     <div className="details">
       {backDropTwoState ? <BackDrop /> : null}
       <div className="movie__details">
-        <img
-          src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
-          alt="Movie Poster"
-          className="poster"
-        />
+        <img src={movie.Poster} alt="Movie Poster" className="poster" />
 
         <div className="movie__details--box">
-          <h1 className="title">{movie.title}</h1>
-          <p className="plot">{movie.overview}</p>
+          <h1 className="title">{movie.Title}</h1>
+          <p className="plot">{movie.Plot}</p>
           <div className="figure__details--box">
             <p className="release__date icon">
-              <i className="fa fa-calendar"></i> {movie.release_date}
+              <i className="fa fa-calendar"></i> {movie.Year}
             </p>
             <p className="rating icon">
-              <i className="fa fa-star"></i> {movie.vote_average}
+              <i className="fa fa-star"></i> {movie.imdbRating}
             </p>
             <p className="duration">
-              <i className="fa fa-play-circle"></i> {movie.runtime}
+              <i className="fa fa-play-circle"></i> {movie.Runtime}
             </p>
           </div>
           <div className="watch-and-fav__icons--box">
@@ -62,15 +58,15 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
         {movies
           ? movies
               .filter((movie, index) => index < 4)
-              .filter((movie) => movie.id !== match.params.param)
+              .filter((movie) => movie.imdbID !== match.params.param)
               .map((movie) => {
                 return (
                   <MovieCard
-                    key={movie.id}
-                    title={movie.title}
-                    year={movie.release_date}
-                    poster={movie.poster_path}
-                    imdbIdTwo={movie.id}
+                    key={movie.imdbID}
+                    title={movie.Title}
+                    year={movie.Year}
+                    poster={movie.Poster}
+                    imdbIdTwo={movie.imdbID}
                   />
                 );
               })
