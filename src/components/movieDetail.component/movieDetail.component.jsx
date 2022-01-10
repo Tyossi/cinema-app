@@ -23,7 +23,6 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
 
   useEffect(() => {
     fetchMovie();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sideViewId]);
 
   return (
