@@ -19,7 +19,7 @@ export const saveSideViewIdToState = (id) => ({
 
 export const fetchSideViewMovieAsync = (match) => {
   const parameter = match.params.id ? match.params.id : match.params.param;
-  // const apiKey = "d5265d163ef6f3964d8fe64245fac0f7";
+
   const apiKey = "dc53bd4c";
   return async (dispatch) => {
     const url = `http://www.omdbapi.com/?i=${parameter}&apikey=${apiKey}`;
