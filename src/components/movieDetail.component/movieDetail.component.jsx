@@ -26,8 +26,6 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sideViewId]);
 
-  // console.log({ match });
-
   return (
     <div className="details">
       {backDropTwoState ? <BackDrop /> : null}
