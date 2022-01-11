@@ -13,7 +13,7 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
   // const apiKey = "d5265d163ef6f3964d8fe64245fac0f7";
   const apiKey = "dc53bd4c";
 
-  const url = `http://www.omdbapi.com/?i=${movieId}&apikey=${apiKey}&plot=full`;
+  const url = `https://www.omdbapi.com/?i=${movieId}&apikey=${apiKey}&plot=full`;
 
   const fetchMovie = async () => {
     const response = await axios(url);
@@ -23,6 +23,7 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
 
   useEffect(() => {
     fetchMovie();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sideViewId]);
 
   return (
@@ -46,7 +47,7 @@ const MovieDetails = ({ match, movies, sideViewId, backDropTwoState }) => {
             </p>
           </div>
           <div className="watch-and-fav__icons--box">
-            <div className="watch-now__CTA">Watch Now</div>
+            {/* <div className="watch-now__CTA">Watch Now</div> */}
             <p className="fav__icon"></p>
           </div>
         </div>

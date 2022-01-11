@@ -22,12 +22,14 @@ export const fetchSideViewMovieAsync = (match) => {
 
   const apiKey = "dc53bd4c";
   return async (dispatch) => {
-    const url = `http://www.omdbapi.com/?i=${parameter}&apikey=${apiKey}`;
+    const url = `https://www.omdbapi.com/?i=${parameter}&apikey=${apiKey}`;
     dispatch(fetchSideViewMovieStart());
 
-    return await axios
+    const result = await axios
       .get(url)
       .then((results) => dispatch(fetchSideViewMovieSuccess(results.data)))
       .catch((error) => dispatch(fetchSideViewMovieFailed(error.message)));
+
+    return result;
   };
 };

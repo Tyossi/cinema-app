@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./sideView.component.style.css";
 import { withRouter, useParams } from "react-router-dom";
 import { connect } from "react-redux";
@@ -14,8 +14,6 @@ import {
   toggleBackdropTwo,
 } from "../../redux/backdrop/backdrop.actions";
 
-import Loading from "../Loading/Loading.component";
-
 const SideView = ({
   match,
   fetchSideViewMovieAsync,
@@ -28,14 +26,9 @@ const SideView = ({
 }) => {
   const { id } = useParams();
 
-  const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     fetchSideViewMovieAsync(match);
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 5000);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -46,60 +39,56 @@ const SideView = ({
   console.log(movie);
   return (
     <div className={"side__view"}>
-      {loading ? (
-        <Loading loading={loading} />
-      ) : (
-        <>
-          {match.path === "/:param" ? (
-            <FontAwesomeIcon
-              className="font-awesome"
-              icon={faArrowLeft}
-              onClick={() => {
-                history.goBack();
-                toggleBackdrop();
-              }}
-            />
-          ) : (
-            <FontAwesomeIcon
-              className="font-awesome"
-              icon={faArrowLeft}
-              onClick={() => {
-                history.goBack();
-                toggleBackdropTwo();
-              }}
-            />
-          )}
+      <>
+        {match.path === "/:param" ? (
+          <FontAwesomeIcon
+            className="font-awesome"
+            icon={faArrowLeft}
+            onClick={() => {
+              history.goBack();
+              toggleBackdrop();
+            }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            className="font-awesome"
+            icon={faArrowLeft}
+            onClick={() => {
+              history.goBack();
+              toggleBackdropTwo();
+            }}
+          />
+        )}
 
-          <div className="side__movie--image">
-            <img src={movie.Poster} alt="Movie Poster" className="side-image" />
+        <div className="side__movie--image">
+          <img src={movie.Poster} alt="Movie Poster" className="side-image" />
+        </div>
+        <h3 className="side__view--title">{movie.Title}</h3>
+        <p className="side__view--plot">{movie.Plot}</p>
+        {id !== undefined ? (
+          <div
+            className="side__view--CTA"
+            onClick={() => {
+              history.push(`/movie-details/${id}`);
+              toggleBackdropTwo();
+              saveSideViewIdToState(id);
+            }}
+          >
+            Full Details
           </div>
-          <h3 className="side__view--title">{movie.Title}</h3>
-          <p className="side__view--plot">{movie.Plot}</p>
-          {id !== undefined ? (
-            <div
-              className="side__view--CTA"
-              onClick={() => {
-                history.push(`/movie-details/${id}`);
-                toggleBackdropTwo();
-                saveSideViewIdToState(id);
-              }}
-            >
-              Full Details
-            </div>
-          ) : (
-            <div
-              className="side__view--CTA"
-              onClick={() => {
-                history.push(`/movie-details/${movie.imdbID}`);
-                toggleMDBackDrop(backdropTwoState);
-                saveSideViewIdToState(movie.imdbID);
-              }}
-            >
-              Full Details
-            </div>
-          )}
-        </>
-      )}
+        ) : (
+          <div
+            className="side__view--CTA"
+            onClick={() => {
+              history.push(`/movie-details/${movie.imdbID}`);
+              toggleMDBackDrop(backdropTwoState);
+              saveSideViewIdToState(movie.imdbID);
+            }}
+          >
+            Full Details
+          </div>
+        )}
+      </>
     </div>
   );
 };

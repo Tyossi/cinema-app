@@ -29,6 +29,11 @@
   display: block;
 }
 
+@media screen and (max-width: 64rem) {
+  .movie__card .view__CTA {
+    display: block;
+  }
+}
 @media screen and (max-width: 25.9rem) {
   .view__CTA {
     display: none;
@@ -41,6 +46,10 @@
     position: absolute;
     top: 33rem;
     left: 10rem;
+  }
+
+  .movie__card .view__CTA {
+    display: block;
   }
 
   .movie__card {
