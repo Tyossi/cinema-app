@@ -23,7 +23,7 @@ npm install npm@latest -g
 1. Clone the repo
 
 ```
-git clone https://github.com/Tyossi/crwn-clothing.git
+git clone https://github.com/Tyossi/cinema-app.git
 ```
 
 2. Run npm install inside project root
@@ -51,6 +51,7 @@ Enjoy :)
 * [React-Router](https://v5.reactrouter.com/web/guides/quick-start) - React Navigation Library
 * [TMDB API](https://developers.themoviedb.org/3) - Movies database API
 * [Font Awesome Icon](https://fontawesome.com/) - UI Icon library used
+* [SVG Icon](https://svgrepo.com/) - UI Icon library used
 
 
 ## Contributors
