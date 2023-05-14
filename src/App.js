@@ -21,22 +21,18 @@ const App = ({ backdropState }) => {
 
   return (
     <div className="App">
-      {loading ? (
+      {/* {loading ? (
         <Loading loading={loading} />
-      ) : (
-        <>
-          <SideNav />
-          <Route path={[`/movie-details/:param/:id`]} component={SideView} />
-          <Route path={`/movie-details/:param`} component={MovieDetails} />
-          <Route
-            exact
-            path={[`/:param`]}
-            render={() => <SideView key="22" />}
-          />
-          <Route path={"/"} render={() => <Homepage key="3" />} />
-          {backdropState ? <Backdrop /> : null}
-        </>
-      )}
+      ) : ( */}
+      <SideNav />
+
+      <Route path={[`/movie-details/:param/:id`]} component={SideView} />
+      <Route path={`/movie-details/:param`} component={MovieDetails} />
+      <Route exact path={[`/:param`]} render={() => <SideView key="22" />} />
+      <Route path={"/"} render={() => <Homepage key="3" />} />
+      {backdropState ? <Backdrop /> : null}
+
+      {/* )} */}
     </div>
   );
 };

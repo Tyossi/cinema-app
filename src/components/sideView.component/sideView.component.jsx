@@ -36,60 +36,67 @@ const SideView = ({
     return backdropTwoState ? toggleBackdropTwo() : null;
   };
 
-  console.log(movie);
   return (
-    <div className={"side__view"}>
-      <>
-        {match.path === "/:param" ? (
-          <FontAwesomeIcon
-            className="font-awesome"
-            icon={faArrowLeft}
-            onClick={() => {
-              history.goBack();
-              toggleBackdrop();
-            }}
-          />
-        ) : (
-          <FontAwesomeIcon
-            className="font-awesome"
-            icon={faArrowLeft}
-            onClick={() => {
-              history.goBack();
-              toggleBackdropTwo();
-            }}
-          />
-        )}
+    <>
+      {movie ? (
+        <div className="side__view">
+          <>
+            {match.path === "/:param" ? (
+              <FontAwesomeIcon
+                className="font-awesome"
+                icon={faArrowLeft}
+                onClick={() => {
+                  history.goBack();
+                  toggleBackdrop();
+                }}
+              />
+            ) : (
+              <FontAwesomeIcon
+                className="font-awesome"
+                icon={faArrowLeft}
+                onClick={() => {
+                  history.goBack();
+                  toggleBackdropTwo();
+                }}
+              />
+            )}
 
-        <div className="side__movie--image">
-          <img src={movie.Poster} alt="Movie Poster" className="side-image" />
+            <div className="side__movie--image">
+              <img
+                src={movie.Poster}
+                alt="Movie Poster"
+                className="side-image"
+              />
+            </div>
+            <h3 className="side__view--title">{movie.Title}</h3>
+            <p className="side__view--plot">{movie.Plot}</p>
+            {id !== undefined ? (
+              <div
+                className="side__view--CTA"
+                onClick={() => {
+                  history.push(`/movie-details/${id}`);
+                  toggleBackdropTwo();
+                  saveSideViewIdToState(id);
+                }}
+              >
+                Full Details
+              </div>
+            ) : (
+              <div
+                className="side__view--CTA"
+                onClick={() => {
+                  history.push(`/movie-details/${movie.imdbID}`);
+                  toggleMDBackDrop(backdropTwoState);
+                  saveSideViewIdToState(movie.imdbID);
+                }}
+              >
+                Full Details
+              </div>
+            )}
+          </>
         </div>
-        <h3 className="side__view--title">{movie.Title}</h3>
-        <p className="side__view--plot">{movie.Plot}</p>
-        {id !== undefined ? (
-          <div
-            className="side__view--CTA"
-            onClick={() => {
-              history.push(`/movie-details/${id}`);
-              toggleBackdropTwo();
-              saveSideViewIdToState(id);
-            }}
-          >
-            Full Details
-          </div>
-        ) : (
-          <div
-            className="side__view--CTA"
-            onClick={() => {
-              history.push(`/movie-details/${movie.imdbID}`);
-              toggleMDBackDrop(backdropTwoState);
-              saveSideViewIdToState(movie.imdbID);
-            }}
-          >
-            Full Details
-          </div>
-        )}
-      </>
-    </div>
+      ) : null}
+    </>
   );
 };
 

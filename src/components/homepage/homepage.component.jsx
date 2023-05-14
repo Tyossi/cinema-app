@@ -1,55 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "../searchBar/searchbar.component";
-import "./homepage.style.css";
 import MovieList from "../movieList/movieList.component";
-import { withRouter } from "react-router";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import "./homepage.style.css";
 import { fetchMoviesAsynchronously } from "../../redux/movies/movies.actions";
 
-const Homepage = ({ fetchMoviesAsynchronously, moviesReducerState }) => {
-  const [query, setQuery] = useState("");
-  const [search, setSearch] = useState("spider man");
+const Homepage = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const movieList = useSelector((state) => state.movies.movies);
 
-  const formRef = useRef();
-
-  const onChange = (e) => {
-    setQuery(e.target.value);
-  };
-
-  const onSubmit = () => {
-    setSearch(query);
-    formRef.current.reset();
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchMoviesAsynchronously(search);
-  }, [search, fetchMoviesAsynchronously]);
+    dispatch(fetchMoviesAsynchronously("star wars"));
+  }, [dispatch]);
 
   return (
     <div className="container">
       <h1 className="homepage__header">Explore</h1>
-      <SearchBar
-        onChange={onChange}
-        onSubmit={onSubmit}
-        query={query}
-        formRef={formRef}
-      />
-
-      <MovieList movies={moviesReducerState} search={search} />
+      <SearchBar setSearch={setSearchTerm} />
+      <MovieList movies={movieList} search={searchTerm} />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  sideViewState: state.sideView.isSideViewOpen,
-  moviesReducerState: state.movies.movies,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  fetchMoviesAsynchronously: (search) =>
-    dispatch(fetchMoviesAsynchronously(search)),
-});
-
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(Homepage)
-);
+export default Homepage;

@@ -1,22 +1,34 @@
-import React from "react";
-import "./searchbar.style.css";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import "../../../node_modules/font-awesome/css/font-awesome.min.css";
+import { fetchMoviesAsynchronously } from "../../redux/movies/movies.actions";
+import "./searchbar.style.css";
 
-const SearchBar = ({ onChange, onSubmit, formRef}) => {
+const SearchBar = ({ setSearch }) => {
+  const [query, setQuery] = useState("");
+
+  const dispatch = useDispatch();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(fetchMoviesAsynchronously(query));
+    setSearch(query);
+    console.log("Dispatched!!!");
+  };
+
   return (
-    <div >
-      <form ref={formRef} className="search__con">
+    <div>
+      <form className="search__con" onSubmit={onSubmit}>
+        <input
+          type="text"
+          onChange={(e) => setQuery(e.target.value)}
+          className="search__bar"
+          // placeholder="&#xF002; Search Movies..."
+        />
 
-      <input
-        type="text"
-        onChange={onChange}
-        className="search__bar"
-        placeholder="&#xF002; Search Movies..."
-      />
-
-      <div type="button" onClick={onSubmit} className="search__CTA">
-        Search
-      </div>
+        <button type="submit" className="search__CTA">
+          Search
+        </button>
       </form>
     </div>
   );

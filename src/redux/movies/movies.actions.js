@@ -25,7 +25,10 @@ export const fetchMoviesAsynchronously = (search) => {
 
     return await axios
       .get(url)
-      .then((response) => dispatch(fetchMoviesSuccess(response.data.Search)))
+      .then((response) => {
+        dispatch(fetchMoviesSuccess(response.data.Search));
+        console.log({ response });
+      })
       .catch((error) => dispatch(fetchMoviesFailed(error.message)));
   };
 };
